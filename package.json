@@ -7,15 +7,13 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development node ./bin/build.js",
     "build": "cross-env NODE_ENV=production node ./bin/build.js",
-    "three": "esbuild src/three/scene.js --bundle --outfile=dist/scene.js --serve=8000 --servedir=dist --sourcemap",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Samso Studios",
   "license": "ISC",
   "dependencies": {
     "@finsweet/ts-utils": "^0.37.3",
-    "gsap": "^3.11.4",
-    "three": "^0.149.0"
+    "gsap": "^3.11.4"
   },
   "devDependencies": {
     "@finsweet/eslint-config": "^2.0.1",
