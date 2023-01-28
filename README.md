@@ -43,9 +43,3 @@ To build the files:
 To serve index.js to localhost at localhost:3000:
 
 - `npm run dev`: A local server created under `http://localhost:3000`.
-
-To serve the threejs start scene at localhost:8000:
-
-- `npm run three`: A local server created under `http://localhost:8000`.
-
-Live Reloading is enabled by default on index.js only, you will need to refresh when using the threejs server
