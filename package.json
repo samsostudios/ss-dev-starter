@@ -1,0 +1,34 @@
+{
+  "name": "ss-three-starter",
+  "version": "1.0.0",
+  "description": "Starter file with basic threejs scene",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node ./bin/build.js",
+    "build": "cross-env NODE_ENV=production node ./bin/build.js",
+    "three": "esbuild src/three/scene.js --bundle --outfile=dist/scene.js --serve=8000 --servedir=dist --sourcemap",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Samso Studios",
+  "license": "ISC",
+  "dependencies": {
+    "@finsweet/ts-utils": "^0.37.3",
+    "gsap": "^3.11.4",
+    "three": "^0.149.0"
+  },
+  "devDependencies": {
+    "@finsweet/eslint-config": "^2.0.1",
+    "@finsweet/tsconfig": "^1.2.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.17.5",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.3",
+    "typescript": "^4.9.4"
+  }
+}
