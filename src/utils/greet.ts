@@ -1,1 +1,1 @@
-import { getPublishDate } from "@finsweet/ts-utils";
+import { getPublishDate } from '@finsweet/ts-utils';

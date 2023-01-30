@@ -1,4 +1,4 @@
 window.Webflow ||= [];
 window.Webflow.push(() => {
-  console.log("/// mainJS ///");
+  console.log('/// mainJS ///');
 });
