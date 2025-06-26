@@ -4,10 +4,11 @@
     "ignoreDeprecations": "5.0",
     "rootDir": ".",
     "baseUrl": "./",
+    "outDir": "dist",
     "paths": {
       "$utils/*": ["src/utils/*"],
       "$motion/*": ["src/motion/*"],
-      "$pages/*": ["src/pages"]
+      "$pages/*": ["src/pages/*"]
     }
   }
 }
