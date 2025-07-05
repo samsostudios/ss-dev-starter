@@ -16,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@finsweet/ts-utils": "^0.37.3",
-    "gsap": "^3.11.4"
+    "gsap": "^3.13.0"
   },
   "devDependencies": {
     "@finsweet/eslint-config": "^3.0.3",
