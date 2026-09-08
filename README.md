@@ -1,4 +1,4 @@
-## ss-threejs-starter
+## ss-dev-starter
 
 A starter project for inetragating three js with Webflow based on Finsweets Developer Starter. This project is NPM based unlike Finsweet's PNPM based starter.
 

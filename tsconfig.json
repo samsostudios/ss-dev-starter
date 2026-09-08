@@ -1,14 +1,26 @@
 {
-  "extends": "@finsweet/tsconfig",
   "compilerOptions": {
-    "ignoreDeprecations": "5.0",
+    "target": "ESNEXT",
+    "module": "ESNext",
+    "removeComments": true,
+
+    "strict": true,
+    "verbatimModuleSyntax": true,
+
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
     "rootDir": ".",
-    "baseUrl": "./",
     "outDir": "dist",
+
     "paths": {
-      "$utils/*": ["src/utils/*"],
-      "$comonents/*": ["src/components/*"],
-      "$animation/*": ["src/animation/*"],
+      "$utils/*": ["./src/utils/*"],
+      "$components/*": ["./src/components/*"],
+      "$animation/*": ["./src/animation/*"]
     }
   }
 }
