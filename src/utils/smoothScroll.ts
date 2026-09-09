@@ -2,21 +2,16 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
-import { getWebflowEnv } from './webflowEnv';
-
 gsap.registerPlugin(ScrollTrigger);
 
 let lenis: Lenis | null = null;
+let rafId: number | null = null;
 
 export function initSmoothScroll() {
-  window.addEventListener('load', () => {
-    const env = getWebflowEnv();
+  if (lenis) return;
 
-    if (env === 'editor') {
-      console.log('[SmoothScroll] Editor detected — disabling Lenis.');
-      disableScrollStyles();
-      return;
-    }
+  const init = () => {
+    if (lenis) return;
 
     lenis = new Lenis({
       duration: 1.4,
@@ -29,18 +24,25 @@ export function initSmoothScroll() {
       infinite: false,
     });
 
-    function raf(time: number) {
+    const raf = (time: number) => {
       if (!lenis) return;
+
       lenis.raf(time);
       ScrollTrigger.update();
-      requestAnimationFrame(raf);
-    }
 
-    requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
+    };
 
-    // Important: recalculate ScrollTrigger points
+    rafId = requestAnimationFrame(raf);
+
     ScrollTrigger.refresh();
-  });
+  };
+
+  if (document.readyState === 'complete') {
+    init();
+  } else {
+    window.addEventListener('load', init, { once: true });
+  }
 }
 
 export function lenisInstance() {
@@ -48,6 +50,11 @@ export function lenisInstance() {
 }
 
 export function destroySmoothScroll() {
+  if (rafId !== null) {
+    cancelAnimationFrame(rafId);
+    rafId = null;
+  }
+
   if (!lenis) return;
 
   lenis.stop();
