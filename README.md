@@ -1,45 +1,161 @@
-## ss-dev-starter
+# Samso Studios Development Starter
 
-A starter project for inetragating three js with Webflow based on Finsweets Developer Starter. This project is NPM based unlike Finsweet's PNPM based starter.
+A lightweight TypeScript starter for custom Webflow development projects by Samso Studios.
 
-Please review the information below to get started.
+The starter provides a modern development environment for writing, bundling, linting, and formatting custom JavaScript and TypeScript used alongside Webflow projects.
 
-## Included tools
+## Stack
 
-This template contains some preconfigured development tools:
+- [TypeScript](https://www.typescriptlang.org/) for type-safe development
+- [esbuild](https://esbuild.github.io/) for fast development and production builds
+- [ESLint](https://eslint.org/) for code quality and import sorting
+- [Prettier](https://prettier.io/) for code formatting
+- [GSAP](https://gsap.com/) for animation
+- [Lenis](https://lenis.darkroom.engineering/) for smooth scrolling
 
-- [Typescript](https://www.typescriptlang.org/)
-- [Prettier](https://prettier.io/)
-- [ESLint](https://eslint.org/)
-- [esbuild](https://esbuild.github.io/)
-- [Changesets](https://github.com/changesets/changesets)
-- [Finsweet's TypeScript Utils](https://github.com/finsweet/ts-utils)
+## Getting Started
 
-## Getting started
-
-The quickest way to start developing a new project is by [creating a new repository from this template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template).
-
-Once the new repository has been created, update the `package.json` file with the correct information, specially the name of the package which has to be unique.
-
-### Installing
-
-After creating the new repository, open it in your terminal and install the packages by running:
+Create a new project from this template and install the dependencies:
 
 ```bash
 npm install
 ```
 
-It is also recommended that you install the following extensions in your VSCode editor:
+Start the development server:
 
-- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+```bash
+npm run dev
+```
 
-### Modes
+The development build watches for changes and serves the compiled files locally.
 
-To build the files:
+Create a production build:
 
-- `npm run build`: Builds to the production directory (`dist`).
+```bash
+npm run build
+```
 
-To serve index.js to localhost at localhost:3000:
+Production files are output to the `dist` directory.
 
-- `npm run dev`: A local server created under `http://localhost:3000`.
+## Scripts
+
+### Development
+
+```bash
+npm run dev
+```
+
+Starts the esbuild development environment with file watching and source maps.
+
+### Build
+
+```bash
+npm run build
+```
+
+Creates a minified production build.
+
+### Lint
+
+```bash
+npm run lint
+```
+
+Checks files in `src` with ESLint.
+
+Automatically fix supported ESLint issues:
+
+```bash
+npm run lint:fix
+```
+
+### Type Check
+
+```bash
+npm run check
+```
+
+Runs TypeScript without emitting files to check for type errors.
+
+### Format
+
+```bash
+npm run format
+```
+
+Formats files in `src` with Prettier.
+
+## Project Structure
+
+```text
+.
+├── bin/
+│   └── build.js
+├── dist/
+├── src/
+│   ├── components/
+│   ├── utils/
+│   └── index.ts
+├── eslint.config.js
+├── global.d.ts
+├── package.json
+├── prettier.config.js
+└── tsconfig.json
+```
+
+### `src/index.ts`
+
+The main entry point for project-specific code.
+
+### `src/components`
+
+Reusable or page-specific components can be organized here.
+
+### `src/utils`
+
+Shared utilities used throughout the project.
+
+The starter includes utilities for:
+
+- Webflow breakpoint detection
+- Webflow environment detection
+- Touch-device detection
+- Dynamic component loading
+- Lenis smooth scrolling
+
+## Path Aliases
+
+TypeScript path aliases are available for commonly used project directories:
+
+```ts
+import { example } from '$utils/example';
+import { example } from '$components/example';
+import { example } from '$animation/example';
+```
+
+Aliases can be configured in `tsconfig.json`.
+
+## Webflow
+
+This starter is designed for custom code that runs alongside a Webflow project.
+
+Project code should generally be initialized through Webflow's loading queue:
+
+```ts
+window.Webflow ||= [];
+
+window.Webflow.push(() => {
+  // Initialize project code
+});
+```
+
+This ensures the Webflow runtime and DOM are ready before project scripts execute.
+
+## Requirements
+
+- Node.js 24 LTS
+- npm
+
+## License
+
+ISC
