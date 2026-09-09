@@ -14,10 +14,14 @@ export function initSmoothScroll() {
     if (lenis) return;
 
     lenis = new Lenis({
-      duration: 1.4,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(90, -2 * t)),
-      wheelMultiplier: 0.8,
-      touchMultiplier: 2,
+      duration: 0.8,
+      easing: (t) => 1 - Math.pow(1 - t, 3), // cubic ease-out
+      // easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)), // easeOutExpo
+      lerp: 0.1, // Experiment with values between 0.1 and 0.25.
+      // A higher value will make it less floaty and more responsive.
+
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.0,
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
